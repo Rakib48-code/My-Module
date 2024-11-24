@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="module_root_menu"
+              name="My Module"
+              sequence="0"/>
+
+    <menuitem id="academy_main_menu"
+              name="Academy Details"
+              parent="module_root_menu"
+              sequence="0"/>
+
+</odoo>

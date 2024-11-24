@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="course_menu_view_tree" model="ir.ui.view">
+        <field name="name">open.course.tree</field>
+        <field name="model">open.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="course_menu_view_form" model="ir.ui.view">
+        <field name="name">open.course.form</field>
+        <field name="model">open.course</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>v
+            </form>
+        </field>
+    </record>
+
+
+    <record id="course_menu_view" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">open.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new course here
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="course_menu"
+              name="Courses"
+              parent="academy_main_menu"
+              action="course_menu_view"
+              sequence="0"/>
+</odoo>
