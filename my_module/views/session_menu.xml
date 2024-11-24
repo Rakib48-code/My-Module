@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="session_menu_view_tree" model="ir.ui.view">
+        <field name="name">open.session.tree</field>
+        <field name="model">open.session</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="course_id"/>
+                <field name="taken_seats" widget="progressbar"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="session_menu_view_form" model="ir.ui.view">
+        <field name="name">open.session.form</field>
+        <field name="model">open.session</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="General">
+                            <field name="course_id"/>
+                            <field name="name"/>
+                            <field name="instructor_id"/>
+                        </group>
+                        <group string="Schedule">
+                            <field name="start_date"/>
+                            <field name="duration"/>
+                            <field name="seats"/>
+                            <field name="taken_seats" widget="progressbar"/>
+                        </group>
+                        <label for="attendance_id"/>
+                        <field name="attendance_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="session_menu_view" model="ir.actions.act_window">
+        <field name="name">Sessions</field>
+        <field name="res_model">open.session</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Let's create a new session
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="session_menu"
+              name="Sessions"
+              parent="academy_main_menu"
+              action="session_menu_view"
+              sequence="0"/>
+
+</odoo>
